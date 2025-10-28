@@ -1,0 +1,78 @@
+/* community.css */
+
+.community-container {
+  max-width: 700px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #fdfdfd;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  font-family: Arial, sans-serif;
+}
+
+.community-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.community-form {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.community-form select,
+.community-form input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.community-form select:focus,
+.community-form input:focus {
+  border-color: #4cafef;
+  box-shadow: 0 0 6px rgba(76,175,239,0.3);
+}
+
+.community-form button {
+  background: #4cafef;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.community-form button:hover {
+  background: #369ddc;
+}
+
+.community-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.community-list li {
+  background: #f7f9fc;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border-left: 4px solid #4cafef;
+  transition: 0.2s;
+}
+
+.community-list li:hover {
+  background: #e9f4fb;
+}
+
+.community-list b {
+  color: #333;
+}

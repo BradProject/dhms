@@ -1,0 +1,82 @@
+.logs-container {
+  padding: 1.5rem;
+  color: #fff;
+  background: linear-gradient(135deg, #0b132b, #1c2541);
+  min-height: 100vh;
+}
+
+.logs-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.logs-header h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.logs-filters {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.logs-filters input[type="text"],
+.logs-filters input[type="date"] {
+  background: #1f2a44;
+  border: 1px solid #4fa3ff;
+  border-radius: 6px;
+  color: #fff;
+  padding: 0.4rem 0.7rem;
+  font-size: 0.9rem;
+  outline: none;
+}
+
+.logs-date-range {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.logs-table-wrapper {
+  overflow-x: auto;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  padding: 0.5rem;
+}
+
+.logs-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.logs-table th,
+.logs-table td {
+  padding: 0.7rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logs-table th {
+  background: rgba(255, 255, 255, 0.1);
+  text-align: left;
+}
+
+.logs-table tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.logs-table tr:hover {
+  background: rgba(79, 163, 255, 0.15);
+  transition: 0.2s;
+}
+
+.no-logs {
+  text-align: center;
+  padding: 1rem;
+  color: #ccc;
+  font-style: italic;
+}

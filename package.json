@@ -1,0 +1,8 @@
+{
+  "name": "digital-hubs-management-system",
+  "private": true,
+  "workspaces": ["client", "server"],
+  "scripts": {
+    "dev": "echo \"Use: cd client && npm run dev || cd server && npm run dev\""
+  }
+}

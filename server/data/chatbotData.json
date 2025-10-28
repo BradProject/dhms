@@ -1,0 +1,249 @@
+[
+  {
+    "keywords": ["digital hub", "digital hubs", "hubs", "digital"],
+    "response": "A Digital Hub is a community center equipped with internet, computers, and digital tools to empower citizens with ICT skills, innovation, and e-services."
+  },
+  {
+    "keywords": ["number of hubs", "how many hubs", "hubs exist"],
+    "response": "Currently, Kenya has 47+ Digital Hubs, with a target of 1,450 hubs across all wards to improve digital access and literacy."
+  },
+  {
+    "keywords": ["ajira", "ajira digital program"],
+    "response": "Ajira Digital empowers young people with digital skills to earn from online work opportunities."
+  },
+  {
+    "keywords": ["jitume", "jitume program"],
+    "response": "Jitume provides youth with access to devices, digital skills, and online jobs through Digital Hubs and TVET institutions."
+  },
+  {
+    "keywords": ["konza", "konza city", "konza technopolis"],
+    "response": "Konza Technopolis is Kenya’s smart city and innovation hub, part of Vision 2030."
+  },
+  {
+    "keywords": ["huduma", "huduma centre", "huduma center"],
+    "response": "Huduma Centres are one-stop shops for multiple government services such as IDs, NHIF, NSSF, and birth certificates."
+  },
+  {
+    "keywords": ["services offered", "hub services"],
+    "response": "Hubs provide internet access, ICT training, entrepreneurship support, government e-services, and digital literacy programs."
+  },
+  {
+    "keywords": ["ministry of ict", "who manages hubs", "ict ministry"],
+    "response": "The Ministry of ICT & Digital Economy manages the hubs in collaboration with counties and partners."
+  },
+  {
+    "keywords": ["e-citizen", "ecitizen"],
+    "response": "E-Citizen is a platform to access 5,000+ government services online such as IDs, passports, and business registration."
+  },
+  {
+    "keywords": ["funding opportunities", "hub funding", "how to get funding"],
+    "response": "Hubs and innovators can access funding through government grants, county initiatives, and private sector partnerships."
+  },
+  {
+    "keywords": ["training programs", "digital skills", "courses"],
+    "response": "Digital Hubs offer courses on ICT skills, entrepreneurship, freelancing, coding, and online safety."
+  },
+
+  {
+    "keywords": [
+      "digital skills in demand",
+      "which digital skills are most in demand today"
+    ],
+    "response": "Digital skills most in demand today include artificial intelligence (AI), machine learning, cybersecurity, data analytics, cloud computing, digital marketing, and advanced coding. Digital hubs aim to provide training in these critical areas."
+  },
+  {
+    "keywords": [
+      "government support for digital skills",
+      "what kind of digital skills does the government support"
+    ],
+    "response": "The government supports a wide range of digital skills, from basic digital literacy to advanced ICT skills, to build a digitally competent workforce, foster innovation, and enable participation in the digital economy."
+  },
+  {
+    "keywords": ["advanced ict training", "can i get advanced ict training"],
+    "response": "Yes, many digital hubs offer advanced training programs in areas like AI, coding, cybersecurity, and data science, often in partnership with educational institutions or industry experts. Check with specific hubs for their specialized offerings."
+  },
+  {
+    "keywords": ["curriculum", "is there a curriculum for each program"],
+    "response": "Yes, structured training programs at digital hubs usually follow a defined curriculum to ensure comprehensive learning outcomes. Details of the curriculum are available upon inquiry at the respective hub."
+  },
+  {
+    "keywords": [
+      "mentorship or incubation",
+      "do you offer mentorship or incubation after training"
+    ],
+    "response": "Many digital hubs provide mentorship, incubation, and acceleration support for promising startups and individuals after training to help them develop their ideas, businesses, and navigate the entrepreneurial ecosystem."
+  },
+  {
+    "keywords": ["online classes", "can i take online classes through the hub"],
+    "response": "Some digital hubs facilitate access to online learning platforms and resources, and some may offer their own online modules to complement in-person training. Inquire at your local hub for online learning opportunities."
+  },
+
+  {
+    "keywords": [
+      "women-focused programs",
+      "are there women-focused programs at the hubs"
+    ],
+    "response": "Yes, digital hubs are committed to gender equality and actively run specific programs designed to empower women through digital skills, entrepreneurship, and leadership development."
+  },
+  {
+    "keywords": [
+      "youth empowerment program",
+      "is there a youth empowerment program through the hubs"
+    ],
+    "response": "Youth empowerment is a core focus of digital hubs, with many programs tailored to equip young people with essential digital skills, innovation capabilities, and entrepreneurial mindsets."
+  },
+  {
+    "keywords": [
+      "training for people with disabilities",
+      "do you support training for people with disabilities"
+    ],
+    "response": "Digital hubs strive to be inclusive and provide accessible training and resources for people with disabilities, often incorporating assistive technologies and adapted approaches."
+  },
+  {
+    "keywords": [
+      "rural or remote communities",
+      "are there any programs for rural or remote communities"
+    ],
+    "response": "The digital hub initiative is specifically designed to extend digital access and opportunities to underserved rural and remote communities across Kenya."
+  },
+
+  {
+    "keywords": ["register business", "can i register my business at the hub"],
+    "response": "While digital hubs don't directly register businesses, they can guide you through the online business registration process and provide the necessary facilities."
+  },
+  {
+    "keywords": [
+      "business development support",
+      "can i access business development support here"
+    ],
+    "response": "Yes, many digital hubs offer mentorship, business planning workshops, financial literacy training, digital marketing support, and funding information for SMEs and startups."
+  },
+  {
+    "keywords": [
+      "support for smes and startups",
+      "do hubs provide support for smes and startups"
+    ],
+    "response": "Supporting SMEs and startups is a key objective of digital hubs, providing them with essential resources, tailored training, and networking opportunities."
+  },
+  {
+    "keywords": [
+      "shared working spaces or innovation labs",
+      "are there shared working spaces or innovation labs"
+    ],
+    "response": "Yes, many digital hubs feature modern co-working spaces, innovation labs, and maker spaces to foster collaboration and creativity."
+  },
+  {
+    "keywords": [
+      "startup benefit from the hub network",
+      "how can my startup benefit from the hub network"
+    ],
+    "response": "Your startup can benefit from the digital hub network through mentorship, funding connections, exposure to markets, and access to skilled talent."
+  },
+
+  {
+    "keywords": ["driving license", "renew my id", "renew driving license"],
+    "response": "Yes, digital hubs provide facilities and assistance to help citizens access government e-services, including renewing driving licenses and applying for IDs via eCitizen."
+  },
+  {
+    "keywords": ["government tenders", "apply for government tenders"],
+    "response": "Yes, you can use digital hub facilities to access government tender portals and apply online. Hub staff can offer basic guidance."
+  },
+  {
+    "keywords": ["huduma services", "access huduma"],
+    "response": "Yes, digital hubs complement Huduma services, offering citizens convenient access to government services online."
+  },
+  {
+    "keywords": ["nemis", "kra", "nssf portals"],
+    "response": "Digital hubs provide support to help citizens navigate portals like NEMIS (education), KRA (tax), and NSSF (social security)."
+  },
+
+  {
+    "keywords": ["report broken hub", "broken equipment"],
+    "response": "Report any broken equipment or non-functioning hubs to the hub manager or through the Ministry of ICT's official feedback channels."
+  },
+  {
+    "keywords": ["how often are hubs maintained", "hub maintenance"],
+    "response": "Digital hubs undergo regular maintenance and updates to ensure optimal functionality. Schedules vary by hub."
+  },
+  {
+    "keywords": ["track usage statistics", "usage statistics for my county"],
+    "response": "Usage statistics and reports, if available, can be found on the Ministry's data portal or official publications."
+  },
+
+  {
+    "keywords": ["events", "hackathons"],
+    "response": "Information on upcoming events, workshops, and hackathons is shared through hub social media pages and the Ministry's website."
+  },
+  {
+    "keywords": ["digital literacy campaign", "next digital literacy campaign"],
+    "response": "Digital literacy campaigns are periodically rolled out nationwide. Check with your local hub for schedules."
+  },
+  {
+    "keywords": ["county-level ict events"],
+    "response": "Yes, many counties organize ICT events in collaboration with digital hubs. Check local announcements for details."
+  },
+  {
+    "keywords": ["showcase my tech project"],
+    "response": "Digital hubs host innovation showcases and pitch events. Inquire at your local hub or through Ministry innovation programs."
+  },
+
+  {
+    "keywords": ["open data", "access open data on digital hubs"],
+    "response": "The Ministry is committed to open data. Datasets on hubs are expected to be available on the official government open data portal."
+  },
+  {
+    "keywords": ["performance metrics", "hub performance metrics"],
+    "response": "Performance metrics and reports are published on the Ministry's website and data portal."
+  },
+  {
+    "keywords": ["success stories", "case studies"],
+    "response": "Success stories and case studies highlighting digital hub impact are shared on the Ministry's platforms and events."
+  },
+
+  {
+    "keywords": ["work at a digital hub", "apply to work at a digital hub"],
+    "response": "Job openings at digital hubs are advertised through official government recruitment channels and the Ministry's website."
+  },
+  {
+    "keywords": ["volunteer to teach", "volunteer at a hub"],
+    "response": "Yes, hubs welcome volunteers to share their expertise in various digital skills. Contact your nearest hub to express interest."
+  },
+  {
+    "keywords": ["hub manager qualifications"],
+    "response": "Typical qualifications include ICT expertise, project management, community engagement, and leadership experience."
+  },
+
+  {
+    "keywords": ["company support", "support a digital hub"],
+    "response": "Companies can support hubs through CSR by donating equipment, sponsoring training, providing mentorship, or funding projects."
+  },
+  {
+    "keywords": ["donations", "accept donations"],
+    "response": "Yes, donations of devices, connectivity, software, and resources are accepted. Contact the Ministry or hub to coordinate."
+  },
+  {
+    "keywords": ["adopt a hub", "sponsor a hub"],
+    "response": "Organizations can adopt or sponsor hubs, providing sustained support for operations and programs. Contact the Ministry for details."
+  },
+  {
+    "keywords": ["partner with universities", "partner with colleges"],
+    "response": "Partnerships with universities and colleges support curriculum development, advanced training, and innovation."
+  },
+
+  {
+    "keywords": ["people expected to be trained next month"],
+    "response": "Forecasting training numbers requires advanced analytics, which are part of the Ministry's ongoing data initiatives."
+  },
+  {
+    "keywords": ["underserved counties"],
+    "response": "The Ministry identifies underserved counties through data analysis to prioritize future hub development."
+  },
+  {
+    "keywords": ["average job placement rate after training"],
+    "response": "Job placement rates are key impact metrics analyzed by the Ministry and published in official impact reports."
+  },
+  {
+    "keywords": ["skills most linked to job placements"],
+    "response": "Data analysis helps identify which digital skills are most linked to job placements, guiding curriculum development."
+  }
+]

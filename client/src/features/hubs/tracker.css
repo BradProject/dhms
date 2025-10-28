@@ -1,0 +1,180 @@
+/* ===== Overlay & Card ===== */
+.tracker-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(6px);
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+}
+
+.tracker-card {
+  background-color: #ffffff;
+  padding: 32px;
+  border-radius: 20px;
+  width: 600px;        /* wider card */
+  max-width: 95%;
+  position: relative;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* ===== Close Button ===== */
+.close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #6b7280;
+}
+.close-btn:hover {
+  color: #111827;
+}
+
+/* ===== Progress Ring ===== */
+.progress-ring-wrapper {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin: 24px 0;
+}
+
+.progress-ring {
+  transform: rotate(-90deg);
+}
+
+.progress-ring-bg {
+  stroke: #e5e7eb;
+  opacity: 0.3;
+}
+
+.progress-ring-bar {
+  stroke: #16a34a;
+  transition: stroke-dashoffset 0.6s ease;
+  transform-origin: 50% 50%;
+}
+
+.progress-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-weight: 600;
+}
+.progress-label span {
+  font-size: 2rem;   /* bigger for wide view */
+  color: #2563eb;
+}
+.progress-label small {
+  display: block;
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+/* ===== Stats ===== */
+.tracker-stats {
+  margin-top: 20px;
+  text-align: left;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+.tracker-stats p {
+  margin: 6px 0;
+}
+
+/* ===== Programs List ===== */
+.tracker-programs {
+  margin-top: 20px;
+  text-align: left;
+}
+.tracker-programs ul {
+  padding-left: 24px;
+  margin: 8px 0;
+}
+.tracker-programs li {
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+/* ===== Target Progress Bar ===== */
+.tracker-target {
+  margin: 24px 0;
+}
+.tracker-target .progress-bar {
+  width: 100%;
+  height: 16px;
+  background: #e5e7eb;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.tracker-target .progress-fill {
+  height: 100%;
+  background: #16a34a;
+  border-radius: 8px 0 0 8px;
+}
+
+/* ===== Status Bar Chart ===== */
+.status-bar-chart {
+  margin-top: 24px;
+}
+.bar-row {
+  display: flex;
+  align-items: center;
+  margin: 6px 0;
+}
+.bar-label {
+  width: 120px;
+  text-transform: capitalize;
+}
+.bar-wrapper {
+  flex: 1;
+  background: #e5e7eb;
+  border-radius: 6px;
+  margin: 0 12px;
+  height: 20px;
+  overflow: hidden;
+}
+.bar-fill {
+  height: 100%;
+  border-radius: 6px 0 0 6px;
+}
+.bar-value {
+  width: 40px;
+  text-align: right;
+  font-size: 0.9rem;
+}
+
+/* ===== Ghost Button Style ===== */
+button.ghost {
+  background-color: transparent;
+  color: #16a34a;
+  border: 2px solid #16a34a;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+button.ghost:hover {
+  background-color: #16a34a;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+}
+button.ghost:active {
+  transform: translateY(0);
+  box-shadow: none;
+}

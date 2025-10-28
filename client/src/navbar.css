@@ -1,0 +1,213 @@
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 10px 20px;
+  border-bottom: 2px solid #eee;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Left side (logo + text) */
+.nav-left {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 60px;
+  width: auto;
+  margin-right: 12px;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+}
+
+/* Moving underline bar (Kenyan flag colors) */ 
+.navbar::after { 
+  content: ""; 
+  position: absolute; 
+  bottom: 0; 
+  left: 0;
+   height: 6px; /* thickness of underline */
+    width: 100%; 
+    background: linear-gradient( 90deg, black 0%, black 20%, white 20%, white 25%, red 25%, red 50%, white 50%, white 55%, green 55%, green 80%, black 80%, black 100% ); 
+    background-size: 300% 100%; animation: flagSlide 15s linear infinite; } 
+    /* Animation for sliding underline */ 
+    @keyframes flagSlide 
+    { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+
+.gov-title {
+  font-weight: bold;
+  color: #222;
+  font-size: 1rem;
+}
+
+.ministry {
+  font-size: 1rem;
+  color: #444;
+  max-width: 400px;
+}
+
+/* =====================
+   Nav Links (Desktop)
+===================== */
+.nav-links {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+}
+
+.nav-link {
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #0ea5e9;
+}
+
+/* Admin button */
+.admin-btn {
+  background: #0597e6;
+  color: #fff !important;
+  padding: 8px 16px;
+  border-radius: 6px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.admin-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 10px rgba(0,0,0,0.25);
+}
+
+/* =====================
+   Hamburger Menu
+===================== */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.bar {
+  width: 24px;
+  height: 3px;
+  background: #333;
+  transition: 0.3s;
+}
+
+.bar.open:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.bar.open:nth-child(2) {
+  opacity: 0;
+}
+.bar.open:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* =====================
+   Responsive Styles
+===================== */
+
+/* Tablets */
+@media (max-width: 992px) {
+  .logo {
+    height: 50px;
+  }
+
+  .logo-text {
+    font-size: 0.85rem;
+    max-width: 250px;
+  }
+
+  .gov-title {
+    font-size: 0.95rem;
+  }
+
+  .ministry {
+    font-size: 0.75rem;
+  }
+}
+
+/* Mobile Navbar */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background: white;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 70%;
+    max-width: 250px;
+    padding: 15px;
+    border-left: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    display: none;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-link {
+    width: 100%;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .nav-left {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .logo {
+    margin-right: 0;
+    margin-bottom: 6px;
+  }
+
+  .logo-text {
+    max-width: 100%;
+    text-align: left;
+  }
+
+  .gov-title {
+    font-size: 0.9rem;
+  }
+
+  .ministry {
+    font-size: 0.7rem;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .gov-title {
+    font-size: 0.8rem;
+  }
+  .ministry {
+    font-size: 0.65rem;
+    line-height: 1.2;
+  }
+}
+
+
+

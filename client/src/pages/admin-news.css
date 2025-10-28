@@ -1,0 +1,92 @@
+.admin-news-container {
+  background: #111;
+  padding: 25px;
+  border-radius: 12px;
+  max-width: 70%;
+  margin: 40px auto;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+}
+
+.admin-news-container h2 {
+  color: #fff;
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+  text-align: center;
+  border-bottom: 3px solid #006600;
+  padding-bottom: 8px;
+  letter-spacing: 1px;
+}
+
+.admin-news-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+/* Labels */
+.admin-news-form label {
+  font-weight: 600;
+  color: #e0e0e0;
+  margin-bottom: 3px;
+}
+
+/* Input, Textarea, Select */
+.admin-news-form input,
+.admin-news-form textarea,
+.admin-news-form select {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: 0.3s;
+}
+
+.admin-news-form input:focus,
+.admin-news-form textarea:focus,
+.admin-news-form select:focus {
+  border-color: #ff0000;
+  box-shadow: 0 0 6px rgba(255, 0, 0, 0.4);
+}
+
+/* Placeholder text */
+.admin-news-form input::placeholder,
+.admin-news-form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Submit Button */
+.admin-news-form button {
+  background: linear-gradient(90deg, #006600, #ff0000);
+  color: white;
+  border: none;
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: 0.3s ease-in-out;
+  font-weight: 600;
+}
+
+.admin-news-form button:hover {
+  background: linear-gradient(90deg, #ff0000, #006600);
+  transform: translateY(-2px);
+  box-shadow: 0 0 8px rgba(255, 0, 0, 0.3);
+}
+
+/* Message */
+.admin-news-message {
+  margin-top: 20px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #fff;
+  text-align: center;
+}

@@ -1,0 +1,89 @@
+.dev-tracking-section {
+  margin: 32px 0;
+  padding: 16px;
+  background: #f9fafb;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.tracker-card {
+  background: #fff;
+  padding: 16px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+}
+.tracker-card:hover {
+  transform: translateY(-2px);
+}
+
+.gantt-bar {
+  display: flex;
+  height: 40px;
+  margin: 12px 0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.gantt-segment {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 12px;
+  opacity: 0.9;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.gantt-segment:hover {
+  transform: scale(1.05);
+  z-index: 2;
+}
+
+.gantt-label {
+  padding: 0 6px;
+  white-space: nowrap;
+}
+
+.challenges-section {
+  margin-top: 12px;
+}
+
+.challenge-input {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.challenge-input input {
+  flex: 1;
+  padding: 6px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+}
+
+.challenge-input button {
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.challenge-input button:hover {
+  background: #1e40af;
+}
+
+.challenge-list li {
+  padding: 4px 8px;
+  cursor: pointer;
+}
+.challenge-list li.resolved {
+  text-decoration: line-through;
+  color: #16a34a;
+}
+.challenge-list .muted {
+  color: #6b7280;
+  font-style: italic;
+}

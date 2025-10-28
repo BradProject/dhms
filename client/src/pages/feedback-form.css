@@ -1,0 +1,138 @@
+/* feedback-form.css */
+
+/* --- SECTION STYLES --- */
+.feedback-section {
+ 
+  margin: 4rem auto;
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.feedback-section:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.feedback-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1e3a8a;
+  margin-bottom: 0.5rem;
+}
+
+.feedback-subtitle {
+  font-size: 1rem;
+  color: #4b5563;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+
+/* --- FORM STYLES --- */
+.feedback-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  color: #374151;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 1rem;
+  
+  color: #000; 
+  transition: border 0.3s ease, background 0.3s ease;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #000000; 
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+  background-color: #ffffff;
+  color:#000;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+
+.form-group textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* --- BUTTON STYLES --- */
+.feedback-submit-btn {
+  background-color: #2563eb;
+  color: #ffffff;
+  padding: 0.9rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.feedback-submit-btn:hover:not(:disabled) {
+  background-color: #1e40af;
+  transform: translateY(-1px);
+}
+
+.feedback-submit-btn:disabled {
+  background-color: #93c5fd;
+  cursor: not-allowed;
+}
+
+/* --- FEEDBACK MESSAGES --- */
+.feedback-success {
+  margin-top: 1rem;
+  color: #000000;
+  font-weight: 600;
+  background: #ecfdf5;
+  padding: 0.75rem;
+  border-radius: 8px;
+}
+
+.feedback-error {
+  margin-top: 1rem;
+  color: #dc2626;
+  font-weight: 600;
+  background: #161515;
+  padding: 0.75rem;
+  border-radius: 8px;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 640px) {
+  .feedback-section {
+    margin: 2rem 1rem;
+    padding: 1.5rem;
+  }
+
+  .feedback-title {
+    font-size: 1.6rem;
+  }
+}

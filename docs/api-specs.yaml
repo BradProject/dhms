@@ -1,0 +1,11 @@
+openapi: 3.0.0
+info:
+  title: DHMS API
+  version: 0.1.0
+paths:
+  /api/reports/kpis:
+    get:
+      summary: KPIs summary
+      responses:
+        '200':
+          description: OK
