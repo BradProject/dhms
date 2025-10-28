@@ -3,7 +3,7 @@ import { io } from "socket.io-client";
 import "./chatbot.css";
 
 // Connect socket to backend
-const socket = io("http://localhost:5000");
+const socket = io("https://kenya-digital-hubs-management-system-scyd.onrender.com");
 
 export default function ChatBot() {
   const initialMessage = [
