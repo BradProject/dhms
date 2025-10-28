@@ -12,7 +12,7 @@ export default function AdminFeedback() {
   const fetchFeedback = async () => {
     try {
       setLoading(true);
-      let url = "http://localhost:5000/api/feedback";
+      let url = "https://kenya-digital-hubs-management-system-scyd.onrender.com/api/feedback";
 
       const params = [];
       if (search) params.push(`search=${search}`);
