@@ -399,11 +399,11 @@ const fetchCoordinates = async (hubName) => {
 
   useEffect(() => {
     load();
-    pollRef.current = setInterval(load, 10000);
-    return () => clearInterval(pollRef.current);
+    // pollRef.current = setInterval(load, 10000);
+    // return () => clearInterval(pollRef.current);
   }, []);
 
-  // 📸 multiple file uploads
+  //multiple file uploads
   const handleFiles = (files) => {
     if (!files?.length) return;
     const readers = Array.from(files).map(

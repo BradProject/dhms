@@ -35,7 +35,7 @@
   position: absolute; 
   bottom: 0; 
   left: 0;
-   height: 6px; /* thickness of underline */
+   height: 3px; /* thickness of underline */
     width: 100%; 
     background: linear-gradient( 90deg, black 0%, black 20%, white 20%, white 25%, red 25%, red 50%, white 50%, white 55%, green 55%, green 80%, black 80%, black 100% ); 
     background-size: 300% 100%; animation: flagSlide 15s linear infinite; } 
