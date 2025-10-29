@@ -90,8 +90,8 @@ export default function HubExplorerForm() {
       setLoading(true);
       try {
         const [hubsRes, countiesRes] = await Promise.all([
-          fetch(`${API_BASE}/hubs`, fetchOpts),
-          fetch(`${API_BASE}/hubs/counties`, fetchOpts),
+          fetch(`${API_BASE}hubs`, fetchOpts),
+          fetch(`${API_BASE}hubs/counties`, fetchOpts),
         ]);
         if (!hubsRes.ok) throw new Error("Failed to fetch hubs");
         if (!countiesRes.ok) throw new Error("Failed to fetch counties");
