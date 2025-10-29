@@ -33,7 +33,9 @@ function RecenterMap({ lat, lng }) {
 }
 
 export default function Dashboard() {
-  const { data, loading, error } = useFetch("/reports/kpis");
+  // const { data, loading, error } = useFetch("/reports/kpis");
+  const { data, loading, error } = useFetch("/api/reports/kpis");
+
 
   const [dateTime, setDateTime] = useState(new Date());
   const images = [
