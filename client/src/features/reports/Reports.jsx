@@ -47,7 +47,7 @@ export default function Reports() {
       try {
         // Since backend exposes /reports/kpis, we use that
         // const res = await API.get("/reports/kpis");
-        const res = await API.get(`/reports/kpis?county=${selectedCounty}`);
+        // const res = await API.get(`/reports/kpis?county=${selectedCounty}`);
 
         setCharts(res.data || {});
       } catch (err) {
