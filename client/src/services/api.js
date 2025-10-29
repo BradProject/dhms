@@ -3,7 +3,7 @@
 import axios from 'axios'
 
 const API = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || 'https://kenya-digital-hubs-management-system-scyd.onrender.com/api'
+  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5000/api'
 })
 
 // add auth header if token present
