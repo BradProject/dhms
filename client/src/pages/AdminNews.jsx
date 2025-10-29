@@ -25,7 +25,7 @@ export default function AdminNews() {
     if (form.image) data.append("image", form.image);
 
     try {
-      const res = await fetch("http://localhost:5000/api/news", {
+      const res = await fetch("https://dhms-79l7.onrender.com/api/news", {
         method: "POST",
         body: data,
       });
