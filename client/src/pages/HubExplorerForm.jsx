@@ -21,7 +21,7 @@ import {
   RefreshCw,
 } from "lucide-react";
 
-const API_BASE = import.meta.env.VITE_API_URL || "https://kenya-digital-hubs-management-system-scyd.onrender.com/api";
+const API_BASE = import.meta.env.VITE_API_URL || "https://dhms-79l7.onrender.com/api/hubs/api";
 
 
 
