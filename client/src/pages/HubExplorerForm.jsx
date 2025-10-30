@@ -89,9 +89,13 @@ export default function HubExplorerForm() {
     async function load() {
       setLoading(true);
       try {
+        // const [hubsRes, countiesRes] = await Promise.all([
+        //   fetch(`${API_BASE}/hubs`, fetchOpts),
+        //   fetch(`${API_BASE}/hubs/counties`, fetchOpts),
+        // ]);
         const [hubsRes, countiesRes] = await Promise.all([
-          fetch(`${API_BASE}hubs`, fetchOpts),
-          fetch(`${API_BASE}hubs/counties`, fetchOpts),
+          fetch(`https://dhms-79l7.onrender.com/api/hubs`, fetchOpts),
+          fetch(`https://dhms-79l7.onrender.com/api/hubs/counties`, fetchOpts),
         ]);
         if (!hubsRes.ok) throw new Error("Failed to fetch hubs");
         if (!countiesRes.ok) throw new Error("Failed to fetch counties");
