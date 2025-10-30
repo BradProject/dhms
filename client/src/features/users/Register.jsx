@@ -39,7 +39,8 @@ export default function Register(){
   }
 
   try {
-    await API.post('/users/register', form)
+    await API.post('https://dhms-79l7.onrender.com/api/users/register', form)
+    //  await API.post('/users/register', form)
     // nav('/hubs')
     nav('https://dhms-79l7.onrender.com/api/hubs')
   } catch (err) {
