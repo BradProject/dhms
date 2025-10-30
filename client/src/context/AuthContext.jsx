@@ -16,7 +16,8 @@ export function AuthProvider({ children }){
   },[])
 
   const login = async (email, password) => {
-    const { data } = await API.post('/users/login', { email, password })
+    // const { data } = await API.post('/users/login', { email, password })
+    const { data } = await API.post('https://dhms-79l7.onrender.com/api/users/login', { email, password })
     localStorage.setItem('token', data.token)
     localStorage.setItem('profile', JSON.stringify(data.user))
     setUser(data.user)
