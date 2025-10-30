@@ -73,7 +73,8 @@ export default function EditHubModal({ hub, isOpen, onClose, onUpdated }) {
         populationEnrolled: Number(form.populationEnrolled) || 0,
       };
 
-      await API.put(`/hubs/${hub._id}`, payload);
+      await API.put(`https://dhms-79l7.onrender.com/api/hubs/${hub._id}`, payload);
+      //  await API.put(`/hubs/${hub._id}`, payload);
       onUpdated();
       onClose();
     } catch (err) {
