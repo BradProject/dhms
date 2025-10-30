@@ -12,7 +12,8 @@ export default function ResetPasswordDirect() {
   useEffect(() => {
     const fetchEmails = async () => {
       try {
-        const res = await fetch("http://localhost:5000/api/auth/all-emails");
+        const res = await fetch("https://dhms-79l7.onrender.com/api/auth/all-emails");
+        // const res = await fetch("http://localhost:5000/api/auth/all-emails");
         const data = await res.json();
         if (res.ok) setEmails(data.emails); // expected format: { emails: ["a@example.com", "b@example.com"] }
       } catch (err) {
@@ -28,7 +29,8 @@ export default function ResetPasswordDirect() {
     setMessage("");
 
     try {
-      const res = await fetch("http://localhost:5000/api/auth/reset-password-direct", {
+      const res = await fetch("https://dhms-79l7.onrender.com/api/auth/reset-password-direct", {
+        // const res = await fetch("http://localhost:5000/api/auth/reset-password-direct", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password, confirmPassword: confirm }),

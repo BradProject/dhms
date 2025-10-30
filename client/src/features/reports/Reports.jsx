@@ -32,7 +32,7 @@ export default function Reports() {
   useEffect(() => {
     const loadCounties = async () => {
       try {
-        const res = await API.get("/hubs/counties");
+        const res = await API.get("https://dhms-79l7.onrender.com/api/hubs/counties");
         setCounties(res.data || []);
       } catch (err) {
         console.error("Error loading counties:", err);

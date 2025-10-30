@@ -38,7 +38,8 @@ export default function Funding() {
   const [editing, setEditing] = useState(null); // stores the funding being edited
 
   const load = async () => {
-    const hubsRes = await API.get("/hubs");
+    const hubsRes = await API.get("https://dhms-79l7.onrender.com/api/hubs");
+    // const hubsRes = await API.get("/hubs");
     setHubs(hubsRes.data);
     const { data } = await API.get("/funding");
     setList(data);
