@@ -41,7 +41,7 @@ export default function Funding() {
     const hubsRes = await API.get("https://dhms-79l7.onrender.com/api/hubs");
     // const hubsRes = await API.get("/hubs");
     setHubs(hubsRes.data);
-    const { data } = await API.get("/funding");
+    const { data } = await API.get("api/funding");
     setList(data);
   };
 
@@ -51,7 +51,7 @@ export default function Funding() {
 
   const save = async (e) => {
     e.preventDefault();
-    await API.post("/funding", {
+    await API.post("api/funding", {
       ...form,
       amount: Number(form.amount),
     });
@@ -75,7 +75,7 @@ export default function Funding() {
 
   const updateFunding = async (e) => {
     e.preventDefault();
-    await API.put(`/funding/${editing._id}`, {
+    await API.put(`api/funding/${editing._id}`, {
       ...editing,
       amount: Number(editing.amount),
     });
@@ -85,7 +85,7 @@ export default function Funding() {
 
   const deleteFunding = async (id) => {
     if (window.confirm("Are you sure you want to delete this funding record?")) {
-      await API.delete(`/funding/${id}`);
+      await API.delete(`api/funding/${id}`);
       load();
     }
   };
