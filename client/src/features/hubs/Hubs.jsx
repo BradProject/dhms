@@ -387,7 +387,8 @@ const fetchCoordinates = async (hubName) => {
   const load = async () => {
     setLoading(true);
     try {
-      const { data } = await API.get("/hubs");
+      // const { data } = await API.get("/hubs");
+       const { data } = await API.get("https://dhms-79l7.onrender.com/api/hubs");
       setList(Array.isArray(data) ? data : []);
       setLastRefresh(new Date());
     } finally {
@@ -428,7 +429,8 @@ const fetchCoordinates = async (hubName) => {
     };
     await logAction("Add Hub", { name: form.name, county: form.county });
 
-    await API.post("/hubs", payload);
+    await API.post("https://dhms-79l7.onrender.com/api/hubs", payload);
+    // await API.post("/hubs", payload);
     setForm({
       name: "",
       county: "",
@@ -453,7 +455,8 @@ const fetchCoordinates = async (hubName) => {
 const updateStatus = async (id, newStatus) => {
   try {
     // 1. Update the hub
-    await API.patch(`/hubs/${id}`, { status: newStatus });
+    // await API.patch(`/hubs/${id}`, { status: newStatus });
+    await API.patch(`https://dhms-79l7.onrender.com/api/hubs/${id}`, { status: newStatus });
 
     // 2. Log the action
     await logAction("Update Status", { hubId: id, newStatus });
@@ -471,7 +474,8 @@ const deleteHub = async (id) => {
 
   try {
     // 1. Delete the hub
-    await API.delete(`/hubs/${id}`);
+    // await API.delete(`/hubs/${id}`);
+    await API.delete(`https://dhms-79l7.onrender.com/api/hubs/${id}`);
 
     // 2. Log the action
     await logAction("Delete Hub", { hubId: id });
