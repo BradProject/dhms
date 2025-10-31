@@ -1,14 +1,3 @@
-// import Funding from '../models/Funding.js'
-
-// export async function listFunding(req,res){
-//   const funds = await Funding.find().populate('hubId', 'name').sort({ createdAt:-1 })
-//   res.json(funds.map(x=>({ ...x.toObject(), hub: x.hubId })))
-// }
-
-// export async function createFunding(req,res){
-//   const f = await Funding.create(req.body)
-//   res.status(201).json(f)
-// }
 
 
 import Funding from '../models/Funding.js'

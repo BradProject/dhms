@@ -10,7 +10,7 @@ export default function NewsCarousel() {
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        const res = await fetch("https://kenya-digital-hubs-management-system-scyd.onrender.com/api/news");
+        const res = await fetch("https://dhms-79l7.onrender.com/api/news");
         const data = await res.json();
         setNews(data);
       } catch (error) {
