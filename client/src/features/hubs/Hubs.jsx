@@ -75,6 +75,219 @@ const getFilteredForReport = () => {
 };
 
 
+// // ---------------------------
+// // 📦 EXPORT TO EXCEL
+// // ---------------------------
+// const exportToExcel = (period) => {
+//   const data = getFilteredForReport();
+
+//   const exportData = data.map((hub) => ({
+//     Name: hub.name,
+//     County: hub.county,
+//     Constituency: hub.constituency,
+//     Ward: hub.ward,
+//     Type: hub.type,
+//     Status: hub.status,
+//     Programs: hub.programs?.join(", "),
+//     Resources: hub.resources
+//       ? `${hub.resources.laptops} laptops, ${hub.resources.desktops} desktops, ${hub.resources.accessPoints} APs, ${hub.resources.bandwidth} Mbps`
+//       : "",
+//     "Implementing Partner": hub.implementingPartner || "",
+//     "Population Enrolled": hub.populationEnrolled || 0,
+//     Milestones: (hub.milestones || []).join(", "),
+//     Coordinates:
+//       hub.location?.coordinates?.length === 2
+//         ? `${hub.location.coordinates[1]}, ${hub.location.coordinates[0]}`
+//         : "",
+//     // ✅ New Contact Fields
+//     "Hub Manager Name": hub.contactPerson || "",
+//     "Phone Number": hub.phone || "",
+//     "Email": hub.email || "",
+//   }));
+
+//   const worksheet = XLSX.utils.json_to_sheet(exportData);
+//   const workbook = XLSX.utils.book_new();
+//   XLSX.utils.book_append_sheet(workbook, worksheet, "Hubs Report");
+
+//   XLSX.writeFile(
+//     workbook,
+//     `hubs_report_${period}_${
+//       countyFilter !== "all" ? countyFilter : "all_counties"
+//     }.xlsx`
+//   );
+// };
+
+// // ---------------------------
+// // 📄 EXPORT TO PDF
+// // ---------------------------
+// const exportToPDF = async (period = "all") => {
+//   const data = getFilteredForReport();
+//   const doc = new jsPDF({
+//     orientation: "landscape",
+//     unit: "pt",
+//     format: "a4",
+//   });
+
+//   const pageWidth = doc.internal.pageSize.getWidth();
+//   const pageHeight = doc.internal.pageSize.getHeight();
+
+//   // --- Logo ---
+//   const logo = `${window.location.origin}/kenya_logo.png`;
+//   const logoImg = await fetch(logo)
+//     .then((res) => res.blob())
+//     .then(
+//       (blob) =>
+//         new Promise((resolve) => {
+//           const reader = new FileReader();
+//           reader.onload = () => resolve(reader.result);
+//           reader.readAsDataURL(blob);
+//         })
+//     );
+//   doc.addImage(logoImg, "PNG", pageWidth / 2 - 15, 20, 30, 30);
+
+//   // --- Header ---
+//   doc.setFont("helvetica", "bold");
+//   doc.setFontSize(14);
+//   doc.text("Republic of Kenya", pageWidth / 2, 65, { align: "center" });
+
+//   doc.setFontSize(11);
+//   doc.setFont("helvetica", "normal");
+//   doc.text(
+//     "The Ministry of Information, Communications and the Digital Economy (MICDE)",
+//     pageWidth / 2,
+//     80,
+//     { align: "center" }
+//   );
+
+//   doc.setFontSize(13);
+//   doc.setFont("helvetica", "bold");
+//   doc.text("Digital Hubs Report", pageWidth / 2, 100, { align: "center" });
+
+//   if (countyFilter !== "all") {
+//     doc.setFontSize(12);
+//     doc.setFont("helvetica", "italic");
+//     doc.text(`County: ${countyFilter}`, pageWidth / 2, 115, { align: "center" });
+//   }
+
+//   doc.setLineWidth(0.5);
+//   doc.line(
+//     40,
+//     countyFilter !== "all" ? 125 : 110,
+//     pageWidth - 40,
+//     countyFilter !== "all" ? 125 : 110
+//   );
+
+//   // --- Summary box ---
+//   const totalPopulation = data.reduce(
+//     (sum, hub) => sum + (hub.populationEnrolled || 0),
+//     0
+//   );
+//   const totalResources = data.reduce(
+//     (acc, hub) => {
+//       acc.laptops += hub.resources?.laptops || 0;
+//       acc.desktops += hub.resources?.desktops || 0;
+//       acc.accessPoints += hub.resources?.accessPoints || 0;
+//       acc.bandwidth += hub.resources?.bandwidth || 0;
+//       return acc;
+//     },
+//     { laptops: 0, desktops: 0, accessPoints: 0, bandwidth: 0 }
+//   );
+
+//   const summaryText = [
+//     `Period: ${period.toUpperCase()}`,
+//     `Total Population: ${totalPopulation.toLocaleString()}`,
+//     `Laptops: ${totalResources.laptops}`,
+//     `desktops: ${totalResources.desktops}`,
+//     `Access Points: ${totalResources.accessPoints}`,
+//     `Bandwidth: ${totalResources.bandwidth} Mbps`,
+//   ].join("   |   ");
+
+//   const boxY = 120;
+//   const boxHeight = 40;
+//   doc.setDrawColor(22, 160, 133);
+//   doc.setLineWidth(1);
+//   doc.rect(40, boxY, pageWidth - 80, boxHeight);
+//   doc.setFont("helvetica", "italic");
+//   doc.setFontSize(11);
+//   doc.text(summaryText, pageWidth / 2, boxY + 25, { align: "center" });
+
+//   const today = new Date().toISOString().split("T")[0];
+//   doc.setFontSize(10);
+//   doc.text(`Generated on: ${today}`, pageWidth - 40, 30, { align: "right" });
+
+//   // --- Data Table ---
+//   autoTable(doc, {
+//     startY: boxY + boxHeight + 20,
+//     head: [
+//       [
+//         "Name",
+//         "County",
+//         "Constituency",
+//         "Ward",
+//         "Type",
+//         "Status",
+//         "Programs",
+//         "Resources",
+//         "Partner",
+//         "Population",
+//         "Milestones",
+//         "Coordinates",
+//         // ✅ Added columns
+//         "Hub Manager",
+//         "Phone",
+//         "Email",
+//       ],
+//     ],
+//     body: data.map((hub) => [
+//       hub.name,
+//       hub.county,
+//       hub.constituency || "",
+//       hub.ward,
+//       hub.type,
+//       hub.status,
+//       hub.programs?.join(", ") || "",
+//       hub.resources
+//         ? `${hub.resources.laptops}L, ${hub.resources.desktops}D, ${hub.resources.accessPoints}AP, ${hub.resources.bandwidth}Mbps`
+//         : "",
+//       hub.implementingPartner || "",
+//       hub.populationEnrolled || 0,
+//       (hub.milestones || []).join(", "),
+//       hub.location?.coordinates?.length === 2
+//         ? `${hub.location.coordinates[1]}, ${hub.location.coordinates[0]}`
+//         : "",
+//       // ✅ New fields
+//       hub.contactPerson || "",
+//       hub.phone || "",
+//       hub.email || "",
+//     ]),
+//     styles: { fontSize: 8, cellPadding: 2 },
+//     headStyles: { fillColor: [22, 160, 133] },
+//     tableWidth: "100%",
+//     theme: "grid",
+
+//     didDrawPage: () => {
+//       const pageCount = doc.internal.getNumberOfPages();
+//       doc.setFontSize(10);
+//       doc.text(
+//         `Page ${doc.internal.getCurrentPageInfo().pageNumber} of ${pageCount}`,
+//         pageWidth / 2,
+//         pageHeight - 20,
+//         { align: "center" }
+//       );
+
+//       doc.setFontSize(9);
+//       doc.text(
+//         "Confidential – Ministry of ICT",
+//         pageWidth / 2,
+//         pageHeight - 8,
+//         { align: "center" }
+//       );
+//     },
+//   });
+
+//   doc.save(`hubs_report_${period}_landscape.pdf`);
+// };
+
 // ---------------------------
 // 📦 EXPORT TO EXCEL
 // ---------------------------
@@ -99,10 +312,15 @@ const exportToExcel = (period) => {
       hub.location?.coordinates?.length === 2
         ? `${hub.location.coordinates[1]}, ${hub.location.coordinates[0]}`
         : "",
+
     // ✅ New Contact Fields
     "Hub Manager Name": hub.contactPerson || "",
     "Phone Number": hub.phone || "",
     "Email": hub.email || "",
+
+    // ✅ ✅ ADDED NEW FIELDS
+    ISP: hub.isp || "",
+    "Area Size": hub.area || "",
   }));
 
   const worksheet = XLSX.utils.json_to_sheet(exportData);
@@ -116,6 +334,8 @@ const exportToExcel = (period) => {
     }.xlsx`
   );
 };
+
+
 
 // ---------------------------
 // 📄 EXPORT TO PDF
@@ -166,7 +386,9 @@ const exportToPDF = async (period = "all") => {
   if (countyFilter !== "all") {
     doc.setFontSize(12);
     doc.setFont("helvetica", "italic");
-    doc.text(`County: ${countyFilter}`, pageWidth / 2, 115, { align: "center" });
+    doc.text(`County: ${countyFilter}`, pageWidth / 2, 115, {
+      align: "center",
+    });
   }
 
   doc.setLineWidth(0.5);
@@ -177,7 +399,7 @@ const exportToPDF = async (period = "all") => {
     countyFilter !== "all" ? 125 : 110
   );
 
-  // --- Summary box ---
+  // --- Summary Box ---
   const totalPopulation = data.reduce(
     (sum, hub) => sum + (hub.populationEnrolled || 0),
     0
@@ -232,10 +454,13 @@ const exportToPDF = async (period = "all") => {
         "Population",
         "Milestones",
         "Coordinates",
-        // ✅ Added columns
         "Hub Manager",
         "Phone",
         "Email",
+
+        // ✅ ✅ TABLE HEADERS ADDED
+        "ISP",
+        "Area Size",
       ],
     ],
     body: data.map((hub) => [
@@ -255,10 +480,13 @@ const exportToPDF = async (period = "all") => {
       hub.location?.coordinates?.length === 2
         ? `${hub.location.coordinates[1]}, ${hub.location.coordinates[0]}`
         : "",
-      // ✅ New fields
       hub.contactPerson || "",
       hub.phone || "",
       hub.email || "",
+
+      // ✅ ✅ ADDED VALUES
+      hub.isp || "",
+      hub.area || "",
     ]),
     styles: { fontSize: 8, cellPadding: 2 },
     headStyles: { fillColor: [22, 160, 133] },
@@ -287,7 +515,6 @@ const exportToPDF = async (period = "all") => {
 
   doc.save(`hubs_report_${period}_landscape.pdf`);
 };
-
 
 
 const logAction = async (action, details = {}) => {
@@ -320,6 +547,9 @@ const logAction = async (action, details = {}) => {
   contactPerson: "",
   phone: "",
   email: "",
+
+  isp: "",
+  area: "",
 
   milestones: "",
   lat: "",
@@ -426,6 +656,8 @@ const fetchCoordinates = async (hubName) => {
       ...form,
       lat: form.lat ? Number(form.lat) : undefined,
       lng: form.lng ? Number(form.lng) : undefined,
+      isp: form.isp,
+      area: form.area,
     };
     await logAction("Add Hub", { name: form.name, county: form.county });
 
@@ -489,16 +721,37 @@ const deleteHub = async (id) => {
 
 
 
-  const filteredList = useMemo(() => {
+//   const filteredList = useMemo(() => {
+//   return list.filter((hub) => {
+//     const matchesName = hub.name?.toLowerCase().includes(searchName.toLowerCase());
+//     const matchesCounty = hub.county?.toLowerCase().includes(searchCounty.toLowerCase());
+//     const matchesConstituency = hub.constituency?.toLowerCase().includes(searchConstituency.toLowerCase());
+//     const matchesType = filterType ? hub.type === filterType : true;
+//     const matchesStatus = filterStatus ? hub.status === filterStatus : true;
+//     return matchesName && matchesCounty && matchesConstituency && matchesType && matchesStatus;
+//   });
+// }, [list, searchName, searchCounty, searchConstituency, filterType, filterStatus]);
+
+const filteredList = useMemo(() => {
   return list.filter((hub) => {
     const matchesName = hub.name?.toLowerCase().includes(searchName.toLowerCase());
     const matchesCounty = hub.county?.toLowerCase().includes(searchCounty.toLowerCase());
-    const matchesConstituency = hub.constituency?.toLowerCase().includes(searchConstituency.toLowerCase());
-    const matchesType = filterType ? hub.type === filterType : true;
     const matchesStatus = filterStatus ? hub.status === filterStatus : true;
-    return matchesName && matchesCounty && matchesConstituency && matchesType && matchesStatus;
+    const matchesType = filterType ? hub.type === filterType : true;
+    const matchesConstituency = hub.constituency
+      ?.toLowerCase()
+      .includes(searchConstituency.toLowerCase());
+
+    return (
+      matchesName &&
+      matchesCounty &&
+      matchesStatus &&
+      matchesType &&
+      matchesConstituency
+    );
   });
-}, [list, searchName, searchCounty, searchConstituency, filterType, filterStatus]);
+}, [list, searchName, searchCounty, filterStatus, filterType, searchConstituency]);
+
 
   // pagination slicing
   const totalPages = Math.ceil(filteredList.length / perPage);
@@ -720,6 +973,22 @@ const deleteHub = async (id) => {
             
           </select>
         </div>
+
+        {/* New Fields → ISP + Area */}
+<div className="form-row">
+  <input
+    placeholder="Internet Service Provider"
+    value={form.isp}
+    onChange={(e) => setForm({ ...form, isp: e.target.value })}
+  />
+
+  <input
+    placeholder="Hub Area Size (sq. meters)"
+    value={form.area}
+    onChange={(e) => setForm({ ...form, area: e.target.value })}
+  />
+</div>
+
 
         {/* Resources */}
         <div className="form-row">
