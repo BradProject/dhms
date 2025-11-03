@@ -107,15 +107,9 @@ const hubSchema = new mongoose.Schema(
       default: "Innovation Hub",
     },
 
-    // ✅ NEW FIELD — Hub Type Area
-    hubAreaType: {
-      type: String,
-      enum: ["Urban", "Rural", "Peri-Urban"],
-      default: "Urban",
-    },
-
-    // ✅ NEW FIELD — ISP
-    internetServiceProvider: { type: String },
+    
+   hubAreaType: { type: String },
+  internetServiceProvider: { type: String },
 
     status: {
       type: String,

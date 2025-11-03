@@ -288,9 +288,6 @@ const getFilteredForReport = () => {
 //   doc.save(`hubs_report_${period}_landscape.pdf`);
 // };
 
-// ---------------------------
-// 📦 EXPORT TO EXCEL
-// ---------------------------
 const exportToExcel = (period) => {
   const data = getFilteredForReport();
 
@@ -313,14 +310,14 @@ const exportToExcel = (period) => {
         ? `${hub.location.coordinates[1]}, ${hub.location.coordinates[0]}`
         : "",
 
-    // ✅ New Contact Fields
+    // ✅ Contact Fields
     "Hub Manager Name": hub.contactPerson || "",
     "Phone Number": hub.phone || "",
     "Email": hub.email || "",
 
-    // ✅ ✅ ADDED NEW FIELDS
-    ISP: hub.isp || "",
-    "Area Size": hub.area || "",
+    // ✅ Updated New Fields
+    ISP: hub.internetServiceProvider || "",
+    "Hub Type": hub.hubAreaType || "",
   }));
 
   const worksheet = XLSX.utils.json_to_sheet(exportData);
@@ -329,9 +326,7 @@ const exportToExcel = (period) => {
 
   XLSX.writeFile(
     workbook,
-    `hubs_report_${period}_${
-      countyFilter !== "all" ? countyFilter : "all_counties"
-    }.xlsx`
+    `hubs_report_${period}_${countyFilter !== "all" ? countyFilter : "all_counties"}.xlsx`
   );
 };
 
@@ -439,80 +434,79 @@ const exportToPDF = async (period = "all") => {
 
   // --- Data Table ---
   autoTable(doc, {
-    startY: boxY + boxHeight + 20,
-    head: [
-      [
-        "Name",
-        "County",
-        "Constituency",
-        "Ward",
-        "Type",
-        "Status",
-        "Programs",
-        "Resources",
-        "Partner",
-        "Population",
-        "Milestones",
-        "Coordinates",
-        "Hub Manager",
-        "Phone",
-        "Email",
+  startY: boxY + boxHeight + 20,
+  head: [
+    [
+      "Name",
+      "County",
+      "Constituency",
+      "Ward",
+      "Type",
+      "Status",
+      "Programs",
+      "Resources",
+      "Partner",
+      "Population",
+      "Milestones",
+      "Coordinates",
+      "Hub Manager",
+      "Phone",
+      "Email",
 
-        // ✅ ✅ TABLE HEADERS ADDED
-        "ISP",
-        "Area Size",
-      ],
+      // ✅ Renamed Field
+      "ISP",
+      "Hub Type",
     ],
-    body: data.map((hub) => [
-      hub.name,
-      hub.county,
-      hub.constituency || "",
-      hub.ward,
-      hub.type,
-      hub.status,
-      hub.programs?.join(", ") || "",
-      hub.resources
-        ? `${hub.resources.laptops}L, ${hub.resources.desktops}D, ${hub.resources.accessPoints}AP, ${hub.resources.bandwidth}Mbps`
-        : "",
-      hub.implementingPartner || "",
-      hub.populationEnrolled || 0,
-      (hub.milestones || []).join(", "),
-      hub.location?.coordinates?.length === 2
-        ? `${hub.location.coordinates[1]}, ${hub.location.coordinates[0]}`
-        : "",
-      hub.contactPerson || "",
-      hub.phone || "",
-      hub.email || "",
+  ],
+  body: data.map((hub) => [
+    hub.name,
+    hub.county,
+    hub.constituency || "",
+    hub.ward,
+    hub.type,
+    hub.status,
+    hub.programs?.join(", ") || "",
+    hub.resources
+      ? `${hub.resources.laptops}L, ${hub.resources.desktops}D, ${hub.resources.accessPoints}AP, ${hub.resources.bandwidth}Mbps`
+      : "",
+    hub.implementingPartner || "",
+    hub.populationEnrolled || 0,
+    (hub.milestones || []).join(", "),
+    hub.location?.coordinates?.length === 2
+      ? `${hub.location.coordinates[1]}, ${hub.location.coordinates[0]}`
+      : "",
+    hub.contactPerson || "",
+    hub.phone || "",
+    hub.email || "",
 
-      // ✅ ✅ ADDED VALUES
-      hub.isp || "",
-      hub.area || "",
-    ]),
-    styles: { fontSize: 8, cellPadding: 2 },
-    headStyles: { fillColor: [22, 160, 133] },
-    tableWidth: "100%",
-    theme: "grid",
+    // ✅ Updated Values
+    hub.internetServiceProvider || "",
+    hub.hubAreaType || "",
+  ]),
+  styles: { fontSize: 8, cellPadding: 2 },
+  headStyles: { fillColor: [22, 160, 133] },
+  tableWidth: "100%",
+  theme: "grid",
 
-    didDrawPage: () => {
-      const pageCount = doc.internal.getNumberOfPages();
-      doc.setFontSize(10);
-      doc.text(
-        `Page ${doc.internal.getCurrentPageInfo().pageNumber} of ${pageCount}`,
-        pageWidth / 2,
-        pageHeight - 20,
-        { align: "center" }
-      );
+  didDrawPage: () => {
+    const pageCount = doc.internal.getNumberOfPages();
+    doc.setFontSize(10);
+    doc.text(
+      `Page ${doc.internal.getCurrentPageInfo().pageNumber} of ${pageCount}`,
+      pageWidth / 2,
+      pageHeight - 20,
+      { align: "center" }
+    );
 
-      doc.setFontSize(9);
-      doc.text(
-        "Confidential – Ministry of ICT",
-        pageWidth / 2,
-        pageHeight - 8,
-        { align: "center" }
-      );
-    },
-  });
-
+    doc.setFontSize(9);
+    doc.text(
+      "Confidential – Ministry of ICT",
+      pageWidth / 2,
+      pageHeight - 8,
+      { align: "center" }
+    );
+  },
+});
   doc.save(`hubs_report_${period}_landscape.pdf`);
 };
 
@@ -983,7 +977,7 @@ const filteredList = useMemo(() => {
   />
 
   <input
-    placeholder="Hub Area Size (sq. meters)"
+    placeholder="Hub Type"
     value={form.area}
     onChange={(e) => setForm({ ...form, area: e.target.value })}
   />
