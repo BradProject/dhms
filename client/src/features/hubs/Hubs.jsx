@@ -542,8 +542,8 @@ const logAction = async (action, details = {}) => {
   phone: "",
   email: "",
 
-  isp: "",
-  area: "",
+  hubAreaType: "",
+  internetServiceProvider: "",
 
   milestones: "",
   lat: "",
@@ -971,16 +971,18 @@ const filteredList = useMemo(() => {
         {/* New Fields → ISP + Area */}
 <div className="form-row">
   <input
-    placeholder="Internet Service Provider"
-    value={form.isp}
-    onChange={(e) => setForm({ ...form, isp: e.target.value })}
-  />
+  type="text"
+  name="internetServiceProvider"
+  value={formData.internetServiceProvider}
+  onChange={handleChange}
+/>
 
-  <input
-    placeholder="Hub Type"
-    value={form.area}
-    onChange={(e) => setForm({ ...form, area: e.target.value })}
-  />
+<input
+  type="text"
+  name="hubAreaType"
+  value={formData.hubAreaType}
+  onChange={handleChange}
+/>
 </div>
 
 

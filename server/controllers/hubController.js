@@ -500,8 +500,8 @@ export const createHub = async (req, res) => {
       email: data.email,
 
       // NEW fields aligned with schema
-      internetServiceProvider: internetServiceProvider || "",
-      hubAreaType: hubAreaType || "",
+      internetServiceProvider: data.internetServiceProvider || "",
+       hubAreaType: data.hubAreaType || "",
     });
 
     res.status(201).json(hub);
