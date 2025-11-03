@@ -650,8 +650,8 @@ const fetchCoordinates = async (hubName) => {
       ...form,
       lat: form.lat ? Number(form.lat) : undefined,
       lng: form.lng ? Number(form.lng) : undefined,
-      isp: form.isp,
-      area: form.area,
+      internetServiceProvider: form.internetServiceProvider,
+      hubAreaType: form.hubAreaType,
     };
     await logAction("Add Hub", { name: form.name, county: form.county });
 
