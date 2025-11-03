@@ -971,20 +971,25 @@ const filteredList = useMemo(() => {
         {/* New Fields → ISP + Area */}
 <div className="form-row">
   <input
-  type="text"
-  name="internetServiceProvider"
-  value={formData.internetServiceProvider}
-  onChange={handleChange}
-/>
+    type="text"
+    name="internetServiceProvider"
+    value={form.internetServiceProvider}
+    onChange={(e) =>
+      setForm({ ...form, internetServiceProvider: e.target.value })
+    }
+    placeholder="Internet Service Provider"
+  />
 
-<input
-  type="text"
-  name="hubAreaType"
-  value={formData.hubAreaType}
-  onChange={handleChange}
-/>
+  <input
+    type="text"
+    name="hubAreaType"
+    value={form.hubAreaType}
+    onChange={(e) =>
+      setForm({ ...form, hubAreaType: e.target.value })
+    }
+    placeholder="Hub Type / Area"
+  />
 </div>
-
 
         {/* Resources */}
         <div className="form-row">
